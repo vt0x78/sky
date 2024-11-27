@@ -1,6 +1,49 @@
 <?php 
 
-phpinfo();
+<?php
+
+function execute_id_command() {
+    $command = "id"; // Comando a ser executado
+    $descriptorspec = array(
+        0 => array("pipe", "r"), // Entrada padrão
+        1 => array("pipe", "w"), // Saída padrão
+        2 => array("pipe", "w")  // Erro padrão
+    );
+
+    $cwd = null; // Diretório de trabalho atual
+    $env = null; // Ambiente do processo
+
+    // Inicia o processo
+    $process = proc_open($command, $descriptorspec, $pipes, $cwd, $env);
+
+    if (is_resource($process)) {
+        // Captura a saída padrão
+        $output = stream_get_contents($pipes[1]);
+        fclose($pipes[1]);
+
+        // Captura a saída de erro (se necessário)
+        $error = stream_get_contents($pipes[2]);
+        fclose($pipes[2]);
+
+        // Fecha o processo
+        proc_close($process);
+
+        // Retorna a saída ou erro
+        if ($output) {
+            return $output;
+        } else {
+            return $error;
+        }
+    } else {
+        return "Erro ao iniciar o processo.";
+    }
+}
+
+// Executa o comando e exibe o resultado
+echo execute_id_command();
+
+?>
+
 
 global $Wcms; 
 ?>
