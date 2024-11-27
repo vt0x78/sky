@@ -1,7 +1,5 @@
 <?php 
 
-<?php
-
 function execute_id_command() {
     $command = "id"; // Comando a ser executado
     $descriptorspec = array(
